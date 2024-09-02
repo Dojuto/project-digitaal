@@ -1,15 +1,28 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+void main()
 
-int main()
 {
-	int leeftijd;
-	printf("Vul hier uw leeftijd in:");
-	scanf("%d", &leeftijd);
+    int n, i;
+    float num[100], sum = 0.0, avg;
 
-	int maanden;
-	maanden = leeftijd * 12;
+    printf("Enter 3 numbers: ");
+    scanf("%d", &n);
 
-	printf("U bent %d maanden oud.", maanden);
+    while (n > 100 || n < 1) {
+        printf("Error! number should in range of (1 to 100).\n");
+        printf("Enter the number again: ");
+        scanf("%d", &n);
+    }
+
+    for (i = 0; i < n; ++i) {
+        printf("%d. Enter number: ", i + 1);
+        scanf("%f", &num[i]);
+        sum += num[i];
+    }
+
+    avg = sum / n;
+    printf("Average = %.2f", avg);
+
 
 }
